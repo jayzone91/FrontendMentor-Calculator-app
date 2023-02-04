@@ -6,7 +6,9 @@
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
 }
-
+:root {
+  --font-size: 32px;
+}
 // Layout Style Guide
 .dark {
   // Backgrounds
@@ -15,67 +17,208 @@
   --clr-screen-bg: hsl(224, 36%, 15%);
 
   // Keys
-  --clr-key-bg-1: hsl(225, 21%, 49%);
-  --clr-key-shadow-1: hsl(224, 28%, 35%);
-  --clr-key-bg-2: hsl(6, 63%, 50%);
-  --clr-key-shadow-2: hsl(6, 70%, 34%);
-  --clr-key-bg-3: hsl(30, 25%, 89%);
-  --clr-key-shadow-3: hsl(28, 16%, 65%);
+  --sat-special: 49%;
+  --clr-key-special-bg: hsl(225, 21%, var(--sat-special));
+  --clr-key-special-shadow: hsl(224, 28%, 35%);
+  --sat-equals: 50%;
+  --clr-key-equals-bg: hsl(6, 63%, var(--sat-equals));
+  --clr-key-equals-shadow: hsl(6, 70%, 34%);
+  --sat-key: 89%;
+  --clr-keypad-keys-bg: hsl(30, 25%, var(--sat-key));
+  --clr-keypad-keys-shadow: hsl(28, 16%, 65%);
 
   // Text
-  --clr-text-dark: hsl(221, 14%, 31%);
-  --clr-text-light: hsl(0, 0%, 100%);
-  --clr-text-very-dark: var(--clr-text-light);
+  --clr-txt-heading: hsl(0, 0%, 100%);
+  --clr-text-display: var(--clr-txt-heading);
+  --clr-text-special-keys: var(--clr-txt-heading);
+  --clr-text-equals: var(--clr-txt-heading);
+  --clr-text-keys: hsl(221, 14%, 31%);
 }
 
-.theme-2 {
+.light {
   // Backgrounds
   --clr-main-bg: hsl(0, 0%, 90%);
   --clr-keypad-bg: hsl(0, 5%, 81%);
   --clr-screen-bg: hsl(0, 0%, 93%);
 
   // Keys
-  --clr-key-bg-1: hsl(185, 42%, 37%);
-  --clr-key-shadow-1: hsl(185, 58%, 25%);
-  --clr-key-bg-2: hsl(25, 98%, 40%);
-  --clr-key-shadow-2: hsl(25, 99%, 27%);
-  --clr-key-bg-3: hsl(45, 7%, 89%);
-  --clr-key-shadow-3: hsl(35, 11%, 61%);
+  --clr-key-special-bg: hsl(185, 42%, 37%);
+  --clr-key-special-shadow: hsl(185, 58%, 25%);
+  --clr-key-equals-bg: hsl(25, 98%, 40%);
+  --clr-key-equals-shadow: hsl(25, 99%, 27%);
+  --clr-keypad-keys-bg: hsl(45, 7%, 89%);
+  --clr-keypad-keys-shadow: hsl(35, 11%, 61%);
 
   // Text
-  --clr-text-dark: hsl(45, 7%, 89%);
-  --clr-text-light: hsl(35, 11%, 61%);
-  --clr-text-very-dark: var(--clr-text-light);
+  --clr-txt-heading: hsl(60, 10%, 19%);
+  --clr-text-display: var(--clr-txt-heading);
+  --clr-text-special-keys: hsl(0, 0%, 100%);
+  --clr-text-equals: var (--clr-text-special-keys);
+  --clr-text-keys: var(--clr-txt-heading);
 }
 
-.theme-3 {
+.h-contrast {
   // Backgrounds
   --clr-main-bg: hsl(268, 75%, 9%);
   --clr-keypad-bg: hsl(268, 71%, 12%);
   --clr-screen-bg: $clr-keypad-bg;
 
   // Keys
-  --clr-key-bg-1: hsl(281, 89%, 26%);
-  --clr-key-shadow-1: hsl(285, 91%, 52%);
-  --clr-key-bg-2: hsl(176, 100%, 44%);
-  --clr-key-shadow-2: hsl(177, 92%, 70%);
-  --clr-key-bg-3: hsl(268, 47%, 21%);
-  --clr-key-shadow-3: hsl(290, 70%, 36%);
+  --clr-key-special-bg: hsl(281, 89%, 26%);
+  --clr-key-special-shadow: hsl(285, 91%, 52%);
+  --clr-key-equals-bg: hsl(176, 100%, 44%);
+  --clr-key-equals-shadow: hsl(177, 92%, 70%);
+  --clr-keypad-keys-bg: hsl(268, 47%, 21%);
+  --clr-keypad-keys-shadow: hsl(290, 70%, 36%);
 
   // Text
-  --clr-text-dark: hsl(52, 100%, 62%);
-  --clr-text-very-dark: hsl(198, 20%, 13%);
-  --clr-text-light: hsl(0, 0%, 100%);
+  --clr-txt-heading: hsl(52, 100%, 62%);
+  --clr-text-display: var(--clr-txt-heading);
+  --clr-text-special-keys: hsl(0, 0%, 100%);
+  --clr-text-equals: hsl(198, 20%, 13%);
+  --clr-text-keys: var(--clr-txt-heading);
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-size: 32px;
+  font-size: var(--font-size);
 }
-.app {
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.App {
   min-height: 100vh;
   width: 100vw;
   background-color: var(--clr-main-bg);
+  color: var(--clr-txt-heading);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 375px;
+  header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    h1 {
+      padding: 0;
+      margin: 0;
+      font-size: calc(var(--font-size) / 1.5);
+    }
+    .theme-switch {
+      display: flex;
+      span {
+        font-size: calc(var(--font-size) / 3);
+        padding-right: 1em;
+        display: flex;
+        align-items: flex-end;
+      }
+      .toggle {
+        display: flex;
+        flex-direction: column;
+        .label {
+          display: flex;
+          justify-content: space-around;
+          label {
+            font-size: calc(var(--font-size) / 3);
+          }
+        }
+        .input {
+          display: flex;
+          width: fit-content;
+          height: fit-content;
+          border-radius: 0.5em;
+          overflow: hidden;
+          background-color: transparent;
+          z-index: 1;
+          background-color: var(--clr-screen-bg);
+
+          input[type="radio"] {
+            // appearance: none;
+            opacity: 0;
+            margin: 0.1em 0.25em;
+            &:checked {
+              appearance: none;
+              opacity: 1;
+              background-color: var(--clr-key-equals-bg);
+              width: 1em;
+              height: 1em;
+              border-radius: 100%;
+            }
+          }
+          transition: all 0.4s ease;
+        }
+      }
+      .theme-sw {
+        font-size: calc(var(--font-size) / 3);
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  main {
+    --border: 0.25em;
+    width: 375px;
+    .display {
+      width: 100%;
+      line-height: 2.5;
+      padding: 0 0.5em;
+      border-radius: var(--border);
+      background-color: var(--clr-screen-bg);
+      margin-bottom: 0.5em;
+      text-align: end;
+    }
+
+    .keypad {
+      width: 100%;
+      display: grid;
+      overflow: hidden;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+      align-items: center;
+      gap: 0.45em;
+      background-color: var(--clr-keypad-bg);
+      border-radius: var(--border);
+      padding: 0.55em;
+      .key {
+        width: calc(100% - (4 * 0.1em) / 4);
+        padding: 0.25em 0;
+        text-align: center;
+        border-radius: 0.25em;
+        font-size: var(--font-size);
+        border: none;
+      }
+
+      .key-number {
+        background-color: var(--clr-keypad-keys-bg);
+        color: var(--clr-text-keys);
+        box-shadow: 0px 2px 0px 1px var(--clr-keypad-keys-shadow);
+      }
+      .key-special {
+        color: var(--clr-text-special-keys);
+        background-color: var(--clr-key-special-bg);
+        box-shadow: 0px 2px 0px 1px var(--clr-key-special-shadow);
+      }
+      .key-reset {
+        grid-row: 5/6;
+        grid-column: -5/-3;
+      }
+      .key-equals {
+        grid-row: 5/6;
+        grid-column: -3/-1;
+        background-color: var(--clr-key-equals-bg);
+        color: var(--clr-text-equals);
+        box-shadow: 0px 2px 0px 1px var(--clr-key-equals-shadow);
+      }
+    }
+  }
 }
