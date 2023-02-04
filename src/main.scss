@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+}
+
+// Layout Style Guide
+.dark {
+  // Backgrounds
+  --clr-main-bg: hsl(222, 26%, 31%);
+  --clr-keypad-bg: hsl(223, 31%, 20%);
+  --clr-screen-bg: hsl(224, 36%, 15%);
+
+  // Keys
+  --clr-key-bg-1: hsl(225, 21%, 49%);
+  --clr-key-shadow-1: hsl(224, 28%, 35%);
+  --clr-key-bg-2: hsl(6, 63%, 50%);
+  --clr-key-shadow-2: hsl(6, 70%, 34%);
+  --clr-key-bg-3: hsl(30, 25%, 89%);
+  --clr-key-shadow-3: hsl(28, 16%, 65%);
+
+  // Text
+  --clr-text-dark: hsl(221, 14%, 31%);
+  --clr-text-light: hsl(0, 0%, 100%);
+  --clr-text-very-dark: var(--clr-text-light);
+}
+
+.theme-2 {
+  // Backgrounds
+  --clr-main-bg: hsl(0, 0%, 90%);
+  --clr-keypad-bg: hsl(0, 5%, 81%);
+  --clr-screen-bg: hsl(0, 0%, 93%);
+
+  // Keys
+  --clr-key-bg-1: hsl(185, 42%, 37%);
+  --clr-key-shadow-1: hsl(185, 58%, 25%);
+  --clr-key-bg-2: hsl(25, 98%, 40%);
+  --clr-key-shadow-2: hsl(25, 99%, 27%);
+  --clr-key-bg-3: hsl(45, 7%, 89%);
+  --clr-key-shadow-3: hsl(35, 11%, 61%);
+
+  // Text
+  --clr-text-dark: hsl(45, 7%, 89%);
+  --clr-text-light: hsl(35, 11%, 61%);
+  --clr-text-very-dark: var(--clr-text-light);
+}
+
+.theme-3 {
+  // Backgrounds
+  --clr-main-bg: hsl(268, 75%, 9%);
+  --clr-keypad-bg: hsl(268, 71%, 12%);
+  --clr-screen-bg: $clr-keypad-bg;
+
+  // Keys
+  --clr-key-bg-1: hsl(281, 89%, 26%);
+  --clr-key-shadow-1: hsl(285, 91%, 52%);
+  --clr-key-bg-2: hsl(176, 100%, 44%);
+  --clr-key-shadow-2: hsl(177, 92%, 70%);
+  --clr-key-bg-3: hsl(268, 47%, 21%);
+  --clr-key-shadow-3: hsl(290, 70%, 36%);
+
+  // Text
+  --clr-text-dark: hsl(52, 100%, 62%);
+  --clr-text-very-dark: hsl(198, 20%, 13%);
+  --clr-text-light: hsl(0, 0%, 100%);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+}
+.app {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--clr-main-bg);
+}
